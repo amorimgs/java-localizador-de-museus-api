@@ -20,17 +20,33 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * The type Museum controller.
+ */
 @RestController
 @RequestMapping("/museums")
 public class MuseumController {
 
   private final MuseumServiceInterface museumService;
 
+  /**
+   * Instantiates a new Museum controller.
+   *
+   * @param museumService the museum service
+   */
   @Autowired
   public MuseumController(MuseumServiceInterface museumService) {
     this.museumService = museumService;
   }
 
+  /**
+   * Gets museum.
+   *
+   * @param lat         the lat
+   * @param lng         the lng
+   * @param max_dist_km the max dist km
+   * @return the museum
+   */
   @GetMapping("/closest")
   public ResponseEntity<MuseumCreationDto> getMuseum(@RequestParam Double lat,
       @RequestParam Double lng,
@@ -44,6 +60,12 @@ public class MuseumController {
     return ResponseEntity.status(HttpStatus.OK).body(museumDto);
   }
 
+  /**
+   * Post museum response entity.
+   *
+   * @param museumCreationDto the museum creation dto
+   * @return the response entity
+   */
   @PostMapping()
   public ResponseEntity<Museum> postMuseum(MuseumCreationDto museumCreationDto) {
     Museum museum = museumService.createMuseum(ModelDtoConverter.dtoToModel(museumCreationDto));

@@ -25,6 +25,9 @@ public class ModelDtoConverter {
     );
   }
 
+  /**
+   * Convert from model to dtoCreation.
+   */
   public static MuseumCreationDto modelToDtoCreat(Museum museum) {
     return new MuseumCreationDto(
         museum.getName(),
