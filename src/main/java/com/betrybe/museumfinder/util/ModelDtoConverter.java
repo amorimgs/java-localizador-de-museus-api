@@ -26,21 +26,6 @@ public class ModelDtoConverter {
   }
 
   /**
-   * Convert from model to dtoCreation.
-   */
-  public static MuseumCreationDto modelToDtoCreat(Museum museum) {
-    return new MuseumCreationDto(
-        museum.getName(),
-        museum.getDescription(),
-        museum.getAddress(),
-        museum.getCollectionType(),
-        museum.getSubject(),
-        museum.getUrl(),
-        museum.getCoordinate()
-    );
-  }
-
-  /**
    * Convert from dto to model.
    */
   public static Museum dtoToModel(MuseumDto dto) {

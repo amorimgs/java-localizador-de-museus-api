@@ -50,7 +50,15 @@ public class MuseumController {
 
     Museum museum = museumService.getClosestMuseum(coordinate, maxDistKm);
 
-    MuseumCreationDto museumDto = ModelDtoConverter.modelToDtoCreat(museum);
+    MuseumCreationDto museumDto = new MuseumCreationDto(
+        museum.getName(),
+        museum.getDescription(),
+        museum.getAddress(),
+        museum.getCollectionType(),
+        museum.getSubject(),
+        museum.getUrl(),
+        museum.getCoordinate()
+    );
     return ResponseEntity.status(HttpStatus.OK).body(museumDto);
   }
 
