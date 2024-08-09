@@ -25,6 +25,18 @@ public class ModelDtoConverter {
     );
   }
 
+  public static MuseumCreationDto modelToDtoCreat(Museum museum) {
+    return new MuseumCreationDto(
+        museum.getName(),
+        museum.getDescription(),
+        museum.getAddress(),
+        museum.getCollectionType(),
+        museum.getSubject(),
+        museum.getUrl(),
+        museum.getCoordinate()
+    );
+  }
+
   /**
    * Convert from dto to model.
    */
