@@ -8,6 +8,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+/**
+ * The type Collection type controller test.
+ */
 @SpringBootTest
 @AutoConfigureMockMvc
 public class CollectionTypeControllerTest {
@@ -15,6 +18,11 @@ public class CollectionTypeControllerTest {
   @Autowired
   private MockMvc mockMvc;
 
+  /**
+   * Test status.
+   *
+   * @throws Exception the exception
+   */
   @Test
   void testStatus() throws Exception {
     mockMvc.perform(MockMvcRequestBuilders.get("/collections/count/hist,imag")).andExpect(
