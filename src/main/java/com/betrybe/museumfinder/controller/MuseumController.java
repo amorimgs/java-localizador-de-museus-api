@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,6 +32,20 @@ public class MuseumController {
   @Autowired
   public MuseumController(MuseumServiceInterface museumService) {
     this.museumService = museumService;
+  }
+
+  /**
+   * Gets museum by id.
+   *
+   * @param id the id
+   * @return the museum by id
+   */
+  @GetMapping("/{id}")
+  public ResponseEntity<Museum> getMuseumById(@PathVariable Long id) {
+
+    Museum museum = museumService.getMuseum(id);
+
+    return ResponseEntity.status(HttpStatus.OK).body(museum);
   }
 
   /**
